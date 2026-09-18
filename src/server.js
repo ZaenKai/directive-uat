@@ -16,6 +16,43 @@ export function healthPayload(now = () => new Date()) {
 }
 
 /**
+ * Render the health status page.
+ *
+ * @returns {string} The HTML page that displays the health response.
+ */
+export function statusPage() {
+  return `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Health status</title>
+  </head>
+  <body>
+    <main>
+      <h1>Service status</h1>
+      <p id="status">Checking...</p>
+      <p id="timestamp"></p>
+    </main>
+    <script>
+      fetch("/health")
+        .then((response) => {
+          if (!response.ok) throw new Error("Health check failed");
+          return response.json();
+        })
+        .then(({ ok, ts }) => {
+          document.querySelector("#status").textContent = ok ? "UP" : "DOWN";
+          document.querySelector("#timestamp").textContent = ts;
+        })
+        .catch(() => {
+          document.querySelector("#status").textContent = "DOWN";
+        });
+    </script>
+  </body>
+</html>`;
+}
+
+/**
  * Create the HTTP server for Story A.
  *
  * @param {{ now?: () => Date }} [options] - Injectable clock for deterministic tests.
@@ -28,6 +65,16 @@ export function createServer({ now = () => new Date() } = {}) {
   }
 
   return createHttpServer((request, response) => {
+    if (request.url === "/" && request.method === "GET") {
+      const body = statusPage();
+      response.writeHead(200, {
+        "content-type": "text/html; charset=utf-8",
+        "content-length": Buffer.byteLength(body)
+      });
+      response.end(body);
+      return;
+    }
+
     if (request.url !== "/health") {
       response.writeHead(404, { "content-type": "text/plain; charset=utf-8" });
       response.end("Not Found");

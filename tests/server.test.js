@@ -1,5 +1,5 @@
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import { createServer, healthPayload, startServer } from "../src/server.js";
+import { createServer, healthPayload, startServer, statusPage } from "../src/server.js";
 
 describe("healthPayload", () => {
   it("uses the current clock by default", () => {
@@ -27,6 +27,17 @@ describe("server configuration", () => {
   });
 });
 
+describe("statusPage", () => {
+  it("renders a page that checks health and displays the service state", () => {
+    const page = statusPage();
+
+    expect(page).toContain("<title>Health status</title>");
+    expect(page).toContain('fetch("/health")');
+    expect(page).toContain('textContent = ok ? "UP" : "DOWN"');
+    expect(page).toContain('textContent = ts');
+  });
+});
+
 describe("GET /health", () => {
   let server;
   let baseUrl;
@@ -49,6 +60,16 @@ describe("GET /health", () => {
     expect(response.status).toBe(200);
     expect(response.headers.get("content-type")).toContain("application/json");
     expect(payload).toEqual({ ok: true, ts: "2026-09-18T03:00:00.000Z" });
+  });
+
+  it("serves the health status page", async () => {
+    const response = await fetch(`${baseUrl}/`);
+    const page = await response.text();
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get("content-type")).toContain("text/html");
+    expect(page).toContain("Health status");
+    expect(page).toContain('fetch("/health")');
   });
 
   it("rejects non-GET requests", async () => {
