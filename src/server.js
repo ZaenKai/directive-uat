@@ -33,8 +33,11 @@ export function statusPage() {
       <h1>Service status</h1>
       <p id="status">Checking...</p>
       <p id="timestamp"></p>
+      <p id="request-time"></p>
     </main>
     <script>
+      const startedAt = performance.now();
+      const requestTime = document.querySelector("#request-time");
       fetch("/health")
         .then((response) => {
           if (!response.ok) throw new Error("Health check failed");
@@ -46,6 +49,9 @@ export function statusPage() {
         })
         .catch(() => {
           document.querySelector("#status").textContent = "DOWN";
+        })
+        .finally(() => {
+          requestTime.textContent = "Request time: " + Math.round(performance.now() - startedAt) + " ms";
         });
     </script>
   </body>

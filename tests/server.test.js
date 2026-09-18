@@ -35,6 +35,9 @@ describe("statusPage", () => {
     expect(page).toContain('fetch("/health")');
     expect(page).toContain('textContent = ok ? "UP" : "DOWN"');
     expect(page).toContain('textContent = ts');
+    expect(page).toContain('id="request-time"');
+    expect(page).toContain("performance.now()");
+    expect(page).toContain('"Request time: "');
   });
 });
 
