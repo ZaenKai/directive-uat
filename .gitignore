@@ -43,3 +43,7 @@ vbrief/*.lock
 vbrief/.eval/results/
 xbrief/.eval/results/
 .deft/core/
+
+# Node project-local dependencies and generated coverage
+node_modules/
+coverage/
