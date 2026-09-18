@@ -11,3 +11,14 @@ includes:
   deft:
     taskfile: ./.deft/core/Taskfile.yml
     optional: true
+
+tasks:
+  test:
+    desc: Run Story A tests
+    cmds:
+      - npm.cmd test
+
+  test:coverage:
+    desc: Run Story A tests with coverage
+    cmds:
+      - npm.cmd run test:coverage

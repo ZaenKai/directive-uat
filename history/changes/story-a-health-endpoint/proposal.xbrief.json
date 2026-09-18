@@ -1,0 +1,19 @@
+{
+  "vBRIEFInfo": {
+    "version": "0.6"
+  },
+  "plan": {
+    "title": "story-a-health-endpoint",
+    "status": "draft",
+    "narratives": {
+      "Problem": "What is wrong or missing.",
+      "Change": "What this proposal does about it.",
+      "Scope": "In scope: ...  Out of scope: ...",
+      "Impact": "What existing code/specs are affected.",
+      "Risks": "What could go wrong.",
+      "Approach": "How to implement the change.",
+      "Alternatives": "What else was considered and why not.",
+      "Dependencies": "What must exist before this works."
+    }
+  }
+}
