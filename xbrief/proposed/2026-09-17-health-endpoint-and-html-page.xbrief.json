@@ -1,0 +1,28 @@
+{
+  "xBRIEFInfo": {
+    "version": "0.8",
+    "author": "agent:deft-directive-setup",
+    "description": "Health endpoint and HTML status page scope",
+    "created": "2026-09-17T00:00:00-05:00"
+  },
+  "plan": {
+    "id": "health-endpoint-and-html-page",
+    "title": "Health endpoint and HTML status page",
+    "status": "proposed",
+    "metadata": {
+      "kind": "story",
+      "swarm": {
+        "depends_on": []
+      }
+    },
+    "narratives": {
+      "Overview": "Build a small Node.js web app that serves one HTML page and a GET /health endpoint from the same server on port 3000.",
+      "Requirements": "FR-1: GET /health returns JSON with ok=true and ts as an ISO 8601 UTC timestamp.\nFR-2: The server serves one HTML page from the same port.\nFR-3: The page fetches /health once on load and displays UP with the returned timestamp.\nFR-4: If /health cannot be reached, the page displays DOWN and a brief error message.\nNFR-1: Use plain JavaScript and Node's built-in HTTP server without a web framework.",
+      "AcceptanceCriteria": "- GET /health responds successfully with JSON containing ok=true and an ISO 8601 UTC ts.\n- The HTML page loads from the same server on port 3000.\n- A successful page load displays UP and the health timestamp.\n- A failed health request displays DOWN and a brief error message.",
+      "Architecture": "One Node.js process uses the built-in HTTP server to route GET /health and serve the HTML page.",
+      "Testing": "Test the health response shape, the page's successful UP state, and the page's DOWN state when the health request fails.",
+      "Deployment": "Run locally on port 3000; allow the port to be fixed at 3000 for this scope."
+    },
+    "items": []
+  }
+}

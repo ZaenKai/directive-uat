@@ -1,0 +1,2 @@
+# meta/policy-changes.log -- audit trail for policy.allowDirectCommitsToMaster transitions (#746)
+2026-09-18T02:30:39Z actor=agent:deft-directive-setup allowDirectCommitsToMaster=false previous=None changed=true
