@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "boundGeneration": 1,
+  "boundAt": "2026-09-18T03:08:00Z",
+  "contentVersion": "0.119.2",
+  "surfaces": {
+    "payload": "0.119.2",
+    "version": "v0.119.2",
+    "templates": "0.119.2",
+    "skills": "0.119.2",
+    "docs": "0.119.2"
+  },
+  "sessionId": "01a0b227-a632-7af3-806e-c83c6d7b2045",
+  "payloadLoaded": true
+}

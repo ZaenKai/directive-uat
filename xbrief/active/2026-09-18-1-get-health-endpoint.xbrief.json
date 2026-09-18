@@ -1,0 +1,49 @@
+{
+  "xBRIEFInfo": {
+    "version": "0.8",
+    "description": "Scope xBRIEF ingested from GitHub issue #1",
+    "updated": "2026-09-18T03:09:36Z"
+  },
+  "plan": {
+    "title": "GET /health endpoint",
+    "status": "running",
+    "narratives": {
+      "Description": "GET /health endpoint",
+      "Origin": "Ingested from https://github.com/ZaenKai/directive-uat/issues/1",
+      "Labels": "focused-test-pass-1"
+    },
+    "items": [],
+    "tags": [
+      "focused-test-pass-1"
+    ],
+    "references": [
+      {
+        "uri": "https://github.com/ZaenKai/directive-uat/issues/1",
+        "type": "x-xbrief/github-issue",
+        "title": "Issue #1: GET /health endpoint"
+      }
+    ],
+    "acceptance": {
+      "commands": [],
+      "none_stated": true,
+      "source_rung": "project_floor",
+      "derived_reason": "no shell acceptance commands stated in task text; floor until agent derives AC (#3284 ladder)"
+    },
+    "metadata": {
+      "intended_placement": {
+        "schema": "deft.scope.intended_placement.v1",
+        "files": [],
+        "module_boundary": ""
+      },
+      "x-directive/plan-id": {
+        "version": 1,
+        "source": "github-repo-fallback",
+        "github_issue_id": null,
+        "origin": "zaenkai/directive-uat#1",
+        "id": "github.issue.fallback.zaenkai.directive-uat.1"
+      }
+    },
+    "id": "github.issue.fallback.zaenkai.directive-uat.1",
+    "updated": "2026-09-18T03:09:36Z"
+  }
+}

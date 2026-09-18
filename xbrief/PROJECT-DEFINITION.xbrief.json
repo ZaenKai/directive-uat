@@ -4,7 +4,7 @@
     "author": "agent:deft-directive-setup",
     "description": "Project identity gestalt",
     "created": "2026-09-18T02:00:10Z",
-    "updated": "2026-09-18T02:00:10Z"
+    "updated": "2026-09-18T03:09:46Z"
   },
   "plan": {
     "title": "PROJECT-DEFINITION",
@@ -18,7 +18,49 @@
       "ProjectRules": "No project-specific rules defined.",
       "Branching": "Branch-based workflow (default)."
     },
-    "items": [],
+    "items": [
+      {
+        "id": "2026-09-17-health-endpoint-and-html-page",
+        "title": "Health endpoint and HTML status page",
+        "status": "proposed",
+        "metadata": {
+          "source_path": "proposed/2026-09-17-health-endpoint-and-html-page.xbrief.json",
+          "lifecycle_folder": "proposed"
+        }
+      },
+      {
+        "id": "2026-09-18-1-get-health-endpoint",
+        "title": "GET /health endpoint",
+        "status": "running",
+        "metadata": {
+          "source_path": "active/2026-09-18-1-get-health-endpoint.xbrief.json",
+          "lifecycle_folder": "active",
+          "references": [
+            {
+              "uri": "https://github.com/ZaenKai/directive-uat/issues/1",
+              "type": "x-xbrief/github-issue",
+              "title": "Issue #1: GET /health endpoint"
+            }
+          ]
+        }
+      },
+      {
+        "id": "2026-09-18-2-health-status-webpage",
+        "title": "Health status webpage",
+        "status": "running",
+        "metadata": {
+          "source_path": "active/2026-09-18-2-health-status-webpage.xbrief.json",
+          "lifecycle_folder": "active",
+          "references": [
+            {
+              "uri": "https://github.com/ZaenKai/directive-uat/issues/2",
+              "type": "x-xbrief/github-issue",
+              "title": "Issue #2: Health status webpage"
+            }
+          ]
+        }
+      }
+    ],
     "metadata": {
       "staleness_flags": []
     },
